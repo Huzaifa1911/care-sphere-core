@@ -1,0 +1,17 @@
+# Virtual Environment
+.venv/
+__pycache__/
+
+# Poetry files
+poetry.lock
+
+# Environment variables
+.env
+
+# VS Code settings
+.vscode/
+
+# Byte-compiled / Cache
+*.pyc
+*.pyo
+*.pyd
