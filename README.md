@@ -6,7 +6,7 @@ This is an AI-powered healthcare application that allows users to:
 - Chat with their reports using an AI-powered assistant.
 - Search for doctors and clinics using LLM-based search.
 
-The backend is built with **FastAPI** in a **microservices architecture**, using **Poetry** as the package manager.
+The backend is built with **FastAPI** using **Poetry** as the package manager.
 
 ---
 
@@ -28,8 +28,8 @@ Make sure you have the following installed:
 ### **2. Setup the Project**
 Clone the repository:
 ```sh
-git clone https://github.com/your-username/your-repo.git
-cd your-repo
+git clone https://github.com/Huzaifa1911/care-sphere-core.git
+cd care-sphere-core
 ```
 
 Initialize the Poetry virtual environment:
@@ -61,9 +61,6 @@ REDIS_URL=redis://redis:6379/0
 
 # Application Secret Key
 SECRET_KEY=your_secret_key_here
-
-# API Keys (if needed)
-EXTERNAL_API_KEY=your_api_key_here
 ```
 
 The `docker-compose.yml` file will automatically reference these environment variables.
