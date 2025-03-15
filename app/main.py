@@ -1,11 +1,12 @@
 from fastapi import FastAPI
 
-# from app.api.v1.endpoints import auth, chat, documents, search, users
+from app.api.v1.routes import auth
+from app.core.config import settings
 
-app = FastAPI(title="AI Healthcare App")
+app = FastAPI(title=settings.APP_NAME)
 
 # Register API routes
-# app.include_router(auth.router, prefix="/auth", tags=["Auth"])
+app.include_router(auth.router, prefix="/auth", tags=["Auth"])
 # app.include_router(users.router, prefix="/users", tags=["Users"])
 # app.include_router(documents.router, prefix="/documents", tags=["Documents"])
 # app.include_router(chat.router, prefix="/chat", tags=["Chat"])
