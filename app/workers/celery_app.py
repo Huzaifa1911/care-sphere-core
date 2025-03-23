@@ -1,5 +1,6 @@
 from celery import Celery
-from core.config import settings
+
+from app.core.config import settings
 
 # Load settings from environment variables
 REDIS_URL = settings.REDIS_URL

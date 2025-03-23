@@ -1,23 +1,22 @@
-[project]
+[tool.poetry]
 name = "care-sphere-core"
 version = "0.1.0"
 description = ""
-authors = [
-    {name = "huzaifa.arshad1911@gmail.com"}
-]
+authors = ["huzaifa.arshad1911@gmail.com"]
 readme = "README.md"
-requires-python = ">=3.13"
-dependencies = [
-    "fastapi[standard] (>=0.115.11,<0.116.0)",
-    "sqlalchemy (>=2.0.38,<3.0.0)",
-    "alembic (>=1.15.1,<2.0.0)",
-    "redis (>=5.2.1,<6.0.0)",
-    "python-dotenv (>=1.0.1,<2.0.0)",
-    "celery (>=5.4.0,<6.0.0)",
-    "pytest (>=8.3.5,<9.0.0)",
-    "pydantic-settings (>=2.8.1,<3.0.0)"
-]
+packages = [{ include = "app" }]           # Ensure Poetry knows where your code is
 
+[tool.poetry.dependencies]
+python = ">=3.13"
+fastapi = { version = ">=0.115.11,<0.116.0", extras = ["standard"] }
+sqlalchemy = ">=2.0.38,<3.0.0"
+alembic = ">=1.15.1,<2.0.0"
+redis = ">=5.2.1,<6.0.0"
+python-dotenv = ">=1.0.1,<2.0.0"
+celery = ">=5.4.0,<6.0.0"
+pytest = ">=8.3.5,<9.0.0"
+pydantic-settings = ">=2.8.1,<3.0.0"
+psycopg2-binary = ">=2.9.10,<3.0.0"
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
@@ -28,6 +27,14 @@ black = "^25.1.0"
 isort = "^6.0.1"
 flake8 = "^7.1.2"
 
+[tool.black]
+line-length = 88
+
+[tool.flake8]
+max-line-length = 88
+
 [tool.pytest.ini_options]
 pythonpath = "."
 
+[tool.poetry.scripts]
+start = "app.main:main"
