@@ -1,21 +1,21 @@
 version: "3.8"
 
 services:
-  fastapi:
-    build: .
-    container_name: healthcare_api
-    restart: always
-    env_file:
-      - .env
-    depends_on:
-      - postgres
-      - redis
-    ports:
-      - "8000:8000"
+  # fastapi:
+  #   build: .
+  #   container_name: care_sphere_api
+  #   restart: always
+  #   env_file:
+  #     - .env
+  #   depends_on:
+  #     - postgres
+  #     - redis
+  #   ports:
+  #     - "8000:8000"
 
   postgres:
     image: postgres:15
-    container_name: healthcare_db
+    container_name: care_sphere_db
     restart: always
     env_file:
       - .env
@@ -27,10 +27,23 @@ services:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
+    
+  
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: care_sphere_pgadmin
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
+    ports:
+      - "5050:80"
+    depends_on:
+      - postgres
 
   redis:
     image: redis:alpine
-    container_name: healthcare_redis
+    container_name: care_sphere_redis
     restart: always
     ports:
       - "6379:6379"
